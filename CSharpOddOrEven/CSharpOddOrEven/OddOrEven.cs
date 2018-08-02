@@ -17,9 +17,16 @@ namespace CSharpOddOrEven
         {
             log.LogInformation("Odd or even trigger fired");
 
-            int number = int.Parse(req.Query["number"]);
+            string numberQueryValue = req.Query["number"];
 
-            return new OkObjectResult(number % 2 == 0 ? "Even" : "Odd");
+            if (int.TryParse(numberQueryValue, out int number))
+            {
+                return new OkObjectResult(number % 2 == 0 ? "Even" : "Odd");
+            }
+            else
+            {
+                return new BadRequestObjectResult($"Unable to parse the query parameter 'number'. Got value: {numberQueryValue}");
+            }
         }
     }
 }
