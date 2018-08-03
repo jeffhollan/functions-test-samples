@@ -8,7 +8,7 @@ namespace CSharpOddOrEven
 {
     public static class OddOrEvenQueue
     {
-        public static Lazy<HttpClient> client = new Lazy<HttpClient>(() => { return new HttpClient(); });
+        public static HttpClient client = new HttpClient();
 
         [FunctionName("OddOrEvenQueue")]
         public static async Task RunAsync(
@@ -22,12 +22,12 @@ namespace CSharpOddOrEven
                 if (number % 2 == 0)
                 {
                     log.LogInformation("Was even");
-                    await client.Value.PostAsync("https://importantapi.com/api/transaction", new StringContent("Even"));
+                    await client.PostAsync("https://importantapi.com/api/transaction", new StringContent("Even"));
                 }
                 else
                 {
                     log.LogInformation("Was odd");
-                    await client.Value.PostAsync("https://importantapi.com/api/transaction", new StringContent("Odd"));
+                    await client.PostAsync("https://importantapi.com/api/transaction", new StringContent("Odd"));
                 }
             }
             else

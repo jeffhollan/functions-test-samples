@@ -1,11 +1,9 @@
-using CSharpOddOrEven;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Primitives;
-using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -13,7 +11,7 @@ namespace CSharpOddOrEven.Tests
 {
     public class OddOrEvenTests
     {
-        private ILogger logger = NullLoggerFactory.Instance.CreateLogger("Test");
+        private readonly ILogger logger = NullLoggerFactory.Instance.CreateLogger("Test");
 
         [Fact]
         public void EvenNumber()
