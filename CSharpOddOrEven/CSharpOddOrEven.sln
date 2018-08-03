@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27924.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpOddOrEven", "CSharpOddOrEven\CSharpOddOrEven.csproj", "{F6663A05-E9E7-4E38-B77D-9A9ED4DD565C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpOddOrEvent.Tests", "CSharpOddOrEvent.Tests\CSharpOddOrEvent.Tests.csproj", "{94827959-F300-4E4C-A48C-B256A175CCC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpOddOrEven.Tests", "CSharpOddOrEvent.Tests\CSharpOddOrEven.Tests.csproj", "{94827959-F300-4E4C-A48C-B256A175CCC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

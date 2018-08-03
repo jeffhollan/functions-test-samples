@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace CSharpOddOrEvent.Tests
+namespace CSharpOddOrEven.Tests
 {
     public class OddOrEvenTests
     {

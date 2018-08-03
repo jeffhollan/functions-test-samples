@@ -15,7 +15,7 @@ namespace CSharpOddOrEven
         [FunctionName("OddOrEven")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")]HttpRequest req, ILogger log)
         {
-            log.LogInformation("Odd or even trigger fired");
+            log.LogInformation("Odd or even trigger fired - HTTP");
 
             string numberQueryValue = req.Query["number"];
 
