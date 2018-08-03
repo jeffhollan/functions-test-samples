@@ -4,15 +4,18 @@ using Microsoft.Extensions.Logging.Abstractions.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xunit.Abstractions;
 
 namespace CSharpOddOrEven.Tests
 {
     class FunctionTestLogger : ILogger
     {
         private IList<string> logs;
-        public FunctionTestLogger()
+        private ITestOutputHelper output;
+        public FunctionTestLogger(ITestOutputHelper output)
         {
             logs = new List<string>();
+            this.output = output;
         }
 
         /// <inheritdoc />
@@ -30,7 +33,9 @@ namespace CSharpOddOrEven.Tests
         /// <inheritdoc />
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            logs.Add(formatter(state, exception));
+            string message = formatter(state, exception);
+            logs.Add(message);
+            output.WriteLine(message);
         }
 
         public IList<string> getLogs()

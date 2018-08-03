@@ -31,16 +31,16 @@ namespace CSharpOddOrEven.Tests
         public async Task EvenNumberAsync()
         {
             int number = 2;
-            FunctionTestLogger logger = new FunctionTestLogger();
+            FunctionTestLogger logger = new FunctionTestLogger(output);
 
             mockHttpMessageHandler
                 .Setup(
-                    m => m.Send(It.Is<HttpRequestMessage>(h => h.Content.ReadAsStringAsync().Result.Contains("Even"))))
+                    m => m.Send(It.IsAny<HttpRequestMessage>()))
                 .Returns(
                     new HttpResponseMessage
                     {
                         StatusCode = System.Net.HttpStatusCode.OK,
-                        Content = new StringContent("Test succeeeded", Encoding.UTF8, "application/json")
+                        Content = null
                     });
 
             OddOrEvenQueue.client = new Lazy<HttpClient>(() => { return new HttpClient(mockHttpMessageHandler.Object); });
