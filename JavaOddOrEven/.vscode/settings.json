@@ -1,5 +1,6 @@
 {
   "azureFunctions.projectRuntime": "beta",
   "azureFunctions.projectLanguage": "Java",
-  "azureFunctions.templateFilter": "Verified"
+  "azureFunctions.templateFilter": "Verified",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
