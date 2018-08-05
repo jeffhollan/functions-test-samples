@@ -1,0 +1,12 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "myNumber",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "numbers",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}

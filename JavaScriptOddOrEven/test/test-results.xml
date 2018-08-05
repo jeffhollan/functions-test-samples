@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.003" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2018-08-05T02:45:54" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="OddOrEven" timestamp="2018-08-05T02:45:54" tests="0" file="/Users/jeffhollan/Development/Functions/functions-test-samples/JavaScriptOddOrEven/test/oddOrEvenTest.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="IsEven" timestamp="2018-08-05T02:45:54" tests="1" file="/Users/jeffhollan/Development/Functions/functions-test-samples/JavaScriptOddOrEven/test/oddOrEvenTest.js" failures="0" time="0.003">
+    <testcase name="OddOrEven IsEven should return even" time="0.003" classname="should return even">
+    </testcase>
+  </testsuite>
+  <testsuite name="IsOdd" timestamp="2018-08-05T02:45:54" tests="1" file="/Users/jeffhollan/Development/Functions/functions-test-samples/JavaScriptOddOrEven/test/oddOrEvenTest.js" failures="0" time="0">
+    <testcase name="OddOrEven IsOdd should return odd" time="0" classname="should return odd">
+    </testcase>
+  </testsuite>
+</testsuites>
