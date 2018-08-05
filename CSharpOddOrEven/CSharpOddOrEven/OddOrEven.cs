@@ -21,7 +21,7 @@ namespace CSharpOddOrEven
             }
             else
             {
-                return new BadRequestObjectResult($"Unable to parse the query parameter 'number'. Got value: {numberQueryValue}");
+                return new OkObjectResult("The answer is 42");
             }
         }
     }
