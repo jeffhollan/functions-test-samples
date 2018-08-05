@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Functions Host",
+      "identifier": "runFunctionsHost",
+      "linux": {
+        "command": "sh -c \"mvn clean package -B && func host start --language-worker -- \\\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005\\\" --script-root \\\"target/azure-functions/odd-or-even-java-dev/\\\"\""
+      },
+      "osx": {
+        "command": "sh -c \"mvn clean package -B && func host start --language-worker -- \\\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005\\\" --script-root \\\"target/azure-functions/odd-or-even-java-dev/\\\"\""
+      },
+      "windows": {
+        "command": "powershell -command \"mvn clean package -B; func host start --language-worker -- \\\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005\\\" --script-root \\\"target/azure-functions/odd-or-even-java-dev/\\\"\""
+      },
+      "type": "shell",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": [
+        {
+          "owner": "azureFunctions",
+          "pattern": [
+            {
+              "regexp": "\\b\\B",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^.*Scanning for projects.*",
+            "endsPattern": "^.*Job host started.*"
+          }
+        }
+      ]
+    }
+  ]
+}
