@@ -5,4 +5,4 @@ $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0
 
 $scmUrl = "https://$($siteName).scm.azurewebsites.net"
 $token = Invoke-RestMethod -Uri "https://$($appName).scm.azurewebsites.net/api/functions/admin/token" -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method GET
-$keys = Invoke-RestMethod -Uri "http://$($appName).azurewebsites.net/admin/functions/$($functionName)/keys" -Headers @{Authorization=("Bearer {0}" -f $token)} -Method GET
+$keys = Invoke-RestMethod -Uri "https://$($appName).azurewebsites.net/admin/functions/$($functionName)/keys" -Headers @{Authorization=("Bearer {0}" -f $token)} -Method GET
