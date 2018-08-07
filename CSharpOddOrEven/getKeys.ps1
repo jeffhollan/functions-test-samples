@@ -14,4 +14,4 @@ $token = Invoke-RestMethod -Uri "https://$($appName).scm.azurewebsites.net/api/f
 $keyResponse = Invoke-RestMethod -Uri "https://$($appName).azurewebsites.net/admin/functions/$($functionName)/keys" -Headers @{Authorization=("Bearer {0}" -f $token)} -Method GET
 $key = $keyResponse.keys[0].value
 
-Write-Host "##vso[task.setvariable variable=functionUrl]https://$($appName).azurewebsites.net/api/$($functionName)&code=$($key)"
+Write-Host "##vso[task.setvariable variable=functionUrl;isSecret=false;isOutput=true;]https://$($appName).azurewebsites.net/api/$($functionName)&code=$($key)"
