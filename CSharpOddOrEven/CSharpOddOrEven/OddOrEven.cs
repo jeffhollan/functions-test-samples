@@ -3,6 +3,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System.Numerics;
 
 namespace CSharpOddOrEven
 {
@@ -15,7 +16,7 @@ namespace CSharpOddOrEven
 
             string numberQueryValue = req.Query["number"];
 
-            if (int.TryParse(numberQueryValue, out int number))
+            if (BigInteger.TryParse(numberQueryValue, out BigInteger number))
             {
                 return new OkObjectResult(number % 2 == 0 ? "Even" : "Odd");
             }
