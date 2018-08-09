@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DE0E628-9BAC-456D-A8F3-0D9ABA6E37C7}"
 	ProjectSection(SolutionItems) = preProject
 		Function.runsettings = Function.runsettings
+		getKeys.ps1 = getKeys.ps1
 	EndProjectSection
 EndProject
 Global
