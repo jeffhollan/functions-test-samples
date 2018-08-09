@@ -1,7 +1,9 @@
 using Moq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Numerics;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -33,10 +35,10 @@ namespace CSharpOddOrEven.Tests
             OddOrEvenQueue.client = new HttpClient(mockHttpMessageHandler.Object);
         }
 
-        [Fact]
-        public async Task EvenNumberAsync()
+        [Theory]
+        [MemberData(nameof(Numbers.EvenNumbers), MemberType = typeof(Numbers))]
+        public async Task EvenNumberAsync(BigInteger number)
         {
-            int number = 2;
             FunctionTestLogger logger = new FunctionTestLogger(output);
 
             await OddOrEvenQueue.RunAsync(number.ToString(), logger);
@@ -50,10 +52,10 @@ namespace CSharpOddOrEven.Tests
             Assert.Equal("Even", await request.Content.ReadAsStringAsync());
         }
 
-        [Fact]
-        public async Task OddNumberAsync()
+        [Theory]
+        [MemberData(nameof(Numbers.OddNumbers), MemberType = typeof(Numbers))]
+        public async Task OddNumberAsync(BigInteger number)
         {
-            int number = 3;
             FunctionTestLogger logger = new FunctionTestLogger(output);
 
             await OddOrEvenQueue.RunAsync(number.ToString(), logger);

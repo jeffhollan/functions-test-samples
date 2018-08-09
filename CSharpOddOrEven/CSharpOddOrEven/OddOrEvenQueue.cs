@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Numerics;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
@@ -17,7 +18,7 @@ namespace CSharpOddOrEven
         {
             log.LogInformation($"Odd or even trigger fired - Queue");
 
-            if (int.TryParse(myNumber, out int number))
+            if (BigInteger.TryParse(myNumber, out BigInteger number))
             {
                 if (number % 2 == 0)
                 {

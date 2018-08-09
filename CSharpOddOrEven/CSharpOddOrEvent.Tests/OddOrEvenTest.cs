@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Primitives;
 using System.Collections.Generic;
+using System.Numerics;
 using Xunit;
 
 namespace CSharpOddOrEven.Tests
@@ -13,11 +14,10 @@ namespace CSharpOddOrEven.Tests
     {
         private readonly ILogger logger = NullLoggerFactory.Instance.CreateLogger("Test");
 
-        [Fact]
-        public void EvenNumber()
+        [Theory]
+        [MemberData(nameof(Numbers.EvenNumbers), MemberType = typeof(Numbers))]
+        public void EvenNumber(BigInteger number)
         {
-            int number = 2;
-
             var request = GenerateHttpRequest(number);
             var response = OddOrEven.Run(request, logger);
 
@@ -25,11 +25,10 @@ namespace CSharpOddOrEven.Tests
             Assert.Equal("Even", ((OkObjectResult)response).Value as string);
         }
 
-        [Fact]
-        public void OddNumber()
+        [Theory]
+        [MemberData(nameof(Numbers.OddNumbers), MemberType = typeof(Numbers))]
+        public void OddNumber(BigInteger number)
         {
-            int number = 3;
-
             var request = GenerateHttpRequest(number);
             var response = OddOrEven.Run(request, logger);
 
